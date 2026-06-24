@@ -71,9 +71,9 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: var(--white);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            background-color: var(--navy);
+            border-bottom: none;
+            box-shadow: 0 4px 16px rgba(0, 31, 63, 0.15);
         }
         
         .header-container {
@@ -107,7 +107,7 @@
         nav a {
             font-size: 15px;
             font-weight: 500;
-            color: var(--text-dark);
+            color: var(--white);
             text-decoration: none;
             transition: color 0.3s ease;
             position: relative;
@@ -129,8 +129,8 @@
         }
         
         .nav-cta {
-            background-color: var(--navy);
-            color: var(--white);
+            background-color: var(--white);
+            color: var(--navy);
             padding: var(--spacing-sm) var(--spacing-lg);
             border-radius: var(--radius-full);
             font-weight: 600;
@@ -142,9 +142,10 @@
         }
         
         .nav-cta:hover {
-            background-color: var(--navy-dark);
+            background-color: var(--gold);
+            color: var(--white);
             transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 31, 63, 0.2);
+            box-shadow: 0 8px 16px rgba(212, 165, 92, 0.3);
         }
         
         /* -------- HERO SECTION -------- */
@@ -373,6 +374,7 @@
             height: auto;
             filter: drop-shadow(0 20px 40px rgba(0, 31, 63, 0.15));
             transition: transform 0.3s ease;
+            width: 120%;
         }
         
         .hero-image-wrapper:hover img {
@@ -534,7 +536,7 @@
     <header>
         <div class="header-container">
             <a href="#" class="logo">
-                <img src="/images/bb-logo.png" alt="Book & Beyond Logo">
+                <img src="/images/brand/bb-logo.png" alt="Book & Beyond Logo">
             </a>
             <nav>
                 <a href="#method">The Method</a>
