@@ -1,6 +1,6 @@
 /* =========================================================
    BOOK & BEYOND PUBLISHING™
-   Authority Whiteboard Funnel — CSS v2
+   Authority Whiteboard Funnel — CSS v3
    File: assets/code/css/styles.css
 ========================================================= */
 
@@ -11,6 +11,7 @@
   --blue-pale: #eef7ff;
   --blue-soft: #dceeff;
   --blue: #1267d8;
+  --blue-bright: #0052ff;
   --blue-dark: #073b8e;
   --navy: #061b3d;
   --navy-2: #0a254f;
@@ -172,8 +173,8 @@ h4 {
 }
 
 h1 {
-  font-size: clamp(4rem, 7.2vw, 7.35rem);
-  max-width: 850px;
+  font-size: clamp(3.7rem, 6.4vw, 6.65rem);
+  max-width: 790px;
 }
 
 h1 span,
@@ -182,7 +183,7 @@ h1 strong {
 }
 
 h1 strong {
-  color: var(--blue);
+  color: var(--blue-bright);
 }
 
 h2 {
@@ -250,7 +251,7 @@ p {
 .handwritten-line,
 .handwritten-note {
   font-family: var(--hand);
-  color: var(--blue);
+  color: var(--blue-bright);
   font-size: clamp(1.5rem, 2.5vw, 2.3rem);
   line-height: 1.15;
 }
@@ -489,17 +490,17 @@ p {
 ------------------------------ */
 
 .hero-section {
-  min-height: calc(100vh - 84px);
+  min-height: auto;
   display: flex;
   align-items: center;
-  padding: 88px 0 96px;
+  padding: 52px 0 88px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.85fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
   align-items: center;
-  gap: 46px;
+  gap: 34px;
 }
 
 .hero-copy p {
@@ -509,7 +510,7 @@ p {
 
 .hero-copy .emphasis-blue {
   margin: 14px 0 18px;
-  color: var(--blue);
+  color: var(--blue-bright);
   font-family: var(--serif);
   font-size: clamp(2rem, 3.2vw, 3.25rem);
   line-height: 1.1;
@@ -534,8 +535,8 @@ p {
 }
 
 .hero-visual img {
-  width: min(100%, 520px);
-  max-height: 650px;
+  width: min(100%, 620px);
+  max-height: 720px;
   object-fit: contain;
   filter: drop-shadow(0 30px 46px rgba(6, 27, 61, 0.18));
 }
@@ -559,7 +560,7 @@ p {
   margin-top: 4px;
   font-family: var(--sans);
   font-size: 2.4rem;
-  color: var(--blue);
+  color: var(--blue-bright);
 }
 
 /* ------------------------------
