@@ -1,0 +1,417 @@
+/* =========================================================
+   BOOK & BEYOND PUBLISHING™
+   Design Enhancement Layer
+   File: assets/code/css/enhancements.css
+   Load AFTER styles.css
+========================================================= */
+
+/* ------------------------------
+   Google Fonts
+------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ------------------------------
+   Font overrides
+------------------------------ */
+:root {
+  --font-heading: 'Playfair Display', Georgia, "Times New Roman", serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Ensure headings use new face */
+h1, h2, h3, h4,
+.proof-close h3,
+.proof-close p,
+.centered-copy.large,
+.statement-box p,
+.section-heading h2,
+.section-heading h3 {
+  font-family: var(--font-heading);
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tighten letter-spacing now that Playfair handles it better */
+h1 { letter-spacing: -0.035em; }
+h2 { letter-spacing: -0.03em; }
+h3 { letter-spacing: -0.02em; }
+
+/* Inter needs slightly more generous line-height */
+p, li { line-height: 1.7; }
+
+/* ------------------------------
+   Reading Progress Bar
+------------------------------ */
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--blue) 60%, #7c3aed 100%);
+  z-index: 2000;
+  border-radius: 0 2px 2px 0;
+  pointer-events: none;
+  transition: width 0.08s linear;
+}
+
+/* ------------------------------
+   Floating CTA Bar
+------------------------------ */
+.floating-cta {
+  position: fixed;
+  bottom: -120px;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: var(--navy);
+  border-top: 2px solid var(--gold);
+  padding: 14px 0;
+  box-shadow: 0 -10px 40px rgba(7, 29, 73, 0.45);
+  transition: bottom 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.floating-cta.is-visible {
+  bottom: 0;
+}
+
+.floating-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.floating-cta-text p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.83rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.floating-cta-text strong {
+  display: block;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.floating-cta .button {
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+  min-height: 50px;
+  padding: 0 28px;
+}
+
+/* ------------------------------
+   Hero Social Proof Strip
+------------------------------ */
+.hero-proof-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 0;
+  margin-bottom: 28px;
+}
+
+.hero-proof-strip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  margin-right: 8px;
+  margin-bottom: 6px;
+  background: rgba(201, 148, 34, 0.08);
+  border: 1px solid rgba(201, 148, 34, 0.25);
+  border-radius: 999px;
+  color: var(--gold-dark);
+  font-size: 0.77rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.hero-proof-strip span::before {
+  content: '✦';
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+
+/* ------------------------------
+   Eyebrow Pills (replace debug section kickers)
+------------------------------ */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 7px 18px;
+  background: rgba(0, 82, 255, 0.06);
+  border: 1px solid rgba(0, 82, 255, 0.18);
+  border-radius: 999px;
+  color: var(--blue);
+  font-size: 0.79rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+}
+
+.eyebrow::before {
+  content: '✦';
+  color: var(--gold);
+  font-size: 0.72rem;
+}
+
+/* Gold variant */
+.eyebrow-gold {
+  background: rgba(201, 148, 34, 0.07);
+  border-color: rgba(201, 148, 34, 0.25);
+  color: var(--gold-dark);
+}
+
+.eyebrow-gold::before {
+  color: var(--gold);
+}
+
+/* ------------------------------
+   Scroll Reveal
+------------------------------ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+[data-reveal="fade"] {
+  transform: none;
+}
+
+[data-reveal="left"] {
+  transform: translateX(-30px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(30px);
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Delay helpers */
+[data-delay="1"] { transition-delay: 0.1s; }
+[data-delay="2"] { transition-delay: 0.2s; }
+[data-delay="3"] { transition-delay: 0.3s; }
+[data-delay="4"] { transition-delay: 0.4s; }
+[data-delay="5"] { transition-delay: 0.5s; }
+[data-delay="6"] { transition-delay: 0.6s; }
+
+/* Prefers-reduced-motion: skip animations */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ------------------------------
+   Checkout: Trust Badges
+------------------------------ */
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.trust-badge .badge-icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* ------------------------------
+   Card Hover Improvements
+------------------------------ */
+.text-card,
+.case-card,
+.visual-card,
+.movement-grid div {
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.text-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 28px 65px rgba(10, 25, 47, 0.13);
+}
+
+.case-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 55px rgba(10, 25, 47, 0.13);
+}
+
+.movement-grid div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(10, 25, 47, 0.1);
+}
+
+/* ------------------------------
+   Stat Numbers — count-up target
+------------------------------ */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  display: inline-block;
+  min-width: 1ch;
+}
+
+/* Make trust bar stats look better with Inter */
+.trust-bar strong {
+  font-family: var(--font-heading);
+  font-style: italic;
+}
+
+/* ------------------------------
+   Button hover refinement
+------------------------------ */
+.button,
+.paypal-button {
+  letter-spacing: 0.07em;
+  font-family: var(--font-body);
+}
+
+.button:active,
+.paypal-button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(185, 123, 4, 0.2);
+}
+
+/* Nav CTA — more polished */
+.nav-cta {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-cta:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* ------------------------------
+   FAQ accordion animation
+------------------------------ */
+.faq-list details {
+  transition: box-shadow 0.2s ease;
+}
+
+.faq-list details[open] {
+  box-shadow: 0 12px 40px rgba(10, 25, 47, 0.12);
+}
+
+.faq-list summary {
+  transition: background 0.18s ease;
+}
+
+.faq-list summary:hover {
+  background: var(--blue-pale);
+}
+
+/* ------------------------------
+   Section kicker — ensure proper display
+------------------------------ */
+.section-kicker {
+  display: block;
+  font-family: var(--font-body);
+}
+
+/* ------------------------------
+   Investment row — stronger price
+------------------------------ */
+.investment-row strong {
+  font-style: italic;
+}
+
+/* ------------------------------
+   Guarantee box — gold accent
+------------------------------ */
+.guarantee-box {
+  border-top: 3px solid var(--gold);
+}
+
+.faq-guarantee {
+  border-top: 3px solid var(--gold);
+}
+
+/* ------------------------------
+   Hero: strengthen the CTA cluster
+------------------------------ */
+.hero-copy .button {
+  margin-top: 32px;
+  font-size: 1.05rem;
+  min-height: 62px;
+  padding: 0 40px;
+}
+
+/* ------------------------------
+   Proof close — italic treatment
+------------------------------ */
+.proof-close p {
+  font-style: italic;
+}
+
+/* ------------------------------
+   Responsibility box — cleaner
+------------------------------ */
+.responsibility-box {
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+}
+
+/* ------------------------------
+   Floating CTA — Mobile
+------------------------------ */
+@media (max-width: 760px) {
+  .floating-cta-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .floating-cta-text strong {
+    font-size: 1rem;
+  }
+
+  .floating-cta .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-proof-strip span {
+    font-size: 0.72rem;
+    padding: 6px 11px;
+  }
+}
